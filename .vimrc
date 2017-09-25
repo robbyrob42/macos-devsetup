@@ -1,5 +1,23 @@
 set nocompatible
-filetype off
+" filetype off
+syntax enable
+set tabstop=4
+set softtabstop=4
+set expandtab
+set number
+set showcmd
+filetype indent on
+set wildmenu
+set lazyredraw
+set showmatch
+set incsearch
+set hlsearch
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=indent
+set modelines=1
+
 
 
 " set the runtime path to include Vundle and initialize
