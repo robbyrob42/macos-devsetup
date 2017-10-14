@@ -7,4 +7,23 @@ and used https://github.com/mathiasbynens/dotfiles for some dotfiles
 
 Huge fan of http://ethanschoonover.com/solarized colorscheme as well
 
+to setup:
+
+clone this to somewhere
+
+1. make sure you "cp .vim* .bash* .aliases ~/" 
+
+then:
+
+"git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
+
+then, in vim:
+
+:PluginInstall
+
+or from command line:
+
+vim +PluginInsall +qall
+
+
 
