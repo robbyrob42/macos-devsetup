@@ -7,6 +7,11 @@ and used https://github.com/mathiasbynens/dotfiles for some dotfiles
 
 Huge fan of http://ethanschoonover.com/solarized colorscheme as well
 
+https://github.com/neowit/tooling-force.com
+and https://github.com/neowit/vim-force.com for SFDC development
+
+tpope/vim-fugitive
+
 to setup:
 
 clone this to somewhere
@@ -19,7 +24,7 @@ then:
 
 then, in vim:
 
-:PluginInstall
+:VundleUpdate
 
 or from command line:
 
