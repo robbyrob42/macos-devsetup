@@ -63,3 +63,6 @@ nmap <c-k> <c-w>k
 nmap <c-l> <c-w>l
 nmap <c-h> <c-w>h
 
+" Airline config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
