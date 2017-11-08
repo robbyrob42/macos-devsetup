@@ -34,16 +34,16 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'neowit/vim-force.com'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'jmcantrell/vim-virtualenv'
 
 " keep Plugin commands between begin and end
 
 call vundle#end() "required
-
 filetype plugin indent on " required
 
 " autostart NerdTree
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+"this didnt work: autocmd StdinReadPre * let s:std_in=1
+"this didnt work: autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 autocmd vimenter * NERDTree
 
 " Brief help
@@ -66,3 +66,5 @@ nmap <c-h> <c-w>h
 " Airline config
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'solarized'
+
