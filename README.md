@@ -30,5 +30,5 @@ or from command line:
 
 vim +PluginInsall +qall
 
-
+#Make sure to point anything marked TODO in .vimrc to your actual locations!
 
