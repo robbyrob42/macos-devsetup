@@ -41,15 +41,15 @@ runtime ftdetect/vim-force.com.vim
 :Plugin 'vim-airline/vim-airline-themes'
 :Plugin 'jmcantrell/vim-virtualenv'
 :Plugin 'majutsushi/tagbar'
+:Plugin 'Shougo/deoplete.nvim'
 
 "keep Plugin commands between begin and end
 
 :call vundle#end() "required
 :filetype plugin indent on " required
 
-"autostart NerdTree set hidden files mode
-"this didnt work: autocmd StdinReadPre * let s:std_in=1
-"this didnt work: autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+"Autostart Things
+"NerdTree set hidden files mode
 :autocmd vimenter * NERDTree
 :autocmd vimenter <S-i><CR>
 
@@ -78,7 +78,7 @@ runtime ftdetect/vim-force.com.vim
 "Vim-Force setup items
 :let g:apex_backup_folder = '~/"google drive"/robbyrob/force.com/vimforcebackup'
 :let g:apex_temp_folder = '~/.vim/bundle/vim-force.com/tmp' "create this folder locally TODO
-:let g:apex_properties_folder = '~/"google drive"/robbyrob/force.com' TODO
+:let g:apex_properties_folder = '~/"google drive"/robbyrob/force.com' " TODO
 :let g:apex_tooling_force_dot_com_path = '~/macsetup'
 " optional stuff
     " g:apex_diff_cmd path to file compare tool
