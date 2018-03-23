@@ -1,10 +1,8 @@
-#existing bash profile items
-export ANT_HOME=/usr/local/ant
-export JAVA_HOME=/usr/local/jdk1.8.0_60
-export PATH=${PATH}:${ANT_HOME}/bin
+#RMJ existing bash profile items (YOU SHOULD DELETE UP TO LINE 8 IF NOT RMJ)
+export PATH=/usr/local/sbin:${PATH}:${ANT_HOME}/bin
 export CLICOLOR=1
 export PS1="[\d \t \u@\h:\w ] $ "
-source ~/.profile
+# source ~/.profile
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
