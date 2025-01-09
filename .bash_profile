@@ -1,27 +1,44 @@
-#RMJ existing bash profile items (YOU SHOULD DELETE UP TO LINE 8 IF NOT RMJ)
-export PATH=/usr/local/sbin:${PATH}:${ANT_HOME}/bin
-export CLICOLOR=1
-export PS1="[\d \t \u@\h:\w ] $ "
-# source ~/.profile
+# if [ -f ~/.bashrc ]; then UPDATING profile vs bashrc to see if this fixes the issue of starship not initializing
+#         source ~/.bashrc
+# fi
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# load dotfiles except .aliases, .prompt and such which happen in .bashrc
 
-#from https://github.com/nicolashery/mac-dev-setup
-# Add Homebrew `/usr/local/bin` and User `~/bin` to the `$PATH`
-PATH=/usr/local/bin:/usr/local/bin/python3:$PATH
-PATH=$HOME/bin:$PATH
-export PATH
-
-# Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
-  [ -r "$file" ] && source "$file"
+for file in ~/.{path,exports,functions,extra}; do
+        [ -r "$file" ] && source "$file"
 done
 unset file
 
+# # doing prompts in .bashrc instead of .bash_profile
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -r "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+# eval "$(starship init bash)"
+
+# set homebrew shellenv
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# set Heroku Autocomplete
+
+HEROKU_AC_BASH_SETUP_PATH=/Users/robertjacques/Library/Caches/heroku/autocomplete/bash_setup 
+
+if [ -n "$HEROKU_AC_BASH_SETUP_PATH" ]; then
+       source "$HEROKU_AC_BASH_SETUP_PATH"
+fi
+
+
+# ngrok autocomplete setup
+
+if command -v ngrok &>/dev/null; then
+        eval "$(ngrok completion)"
+fi
+
+# pyenv init
+
+eval "$(pyenv init -)"
+
+#1PW CLI completion
+
+eval "$(op completion bash)"
+
+# tldr update
+eval "$(tldr -u)"

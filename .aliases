@@ -1,41 +1,18 @@
 # recommended aliases
 
-
-
-#which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-  colorflag="--color"
-else # OS X `ls`
-  colorflag="-G"
-fi
-
-# List all files colorized in long format
-alias ll='ls -lh'
-
-# List all files colorized in long format, including dot files
-alias la="ls -lha"
-
-# List only directories
-alias lsd='ls -l | grep "^d"'
+# we hate cat, we like bat but we can't stop fingers from loving kitty
+alias cat=bat
 
 # Always use color output for `ls`
-alias ls="command ls ${colorflag}"
-export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
 
 # Personal Aliases
 alias myip="curl ipinfo.io?token=344c2a766c0854"
-alias up="cd .."
 alias rm="rm -i"
 alias home="cd"
-alias path="pwd"
-alias force="cd ~/'google drive'/robbyrob/force.com"
-alias certs="cd /Users/robertjacques/'google drive'/rmj_certification_resources"
-alias react="cd ~/'google drive'/robbyrob/classes/egghead-react"
-alias roblo="cd ~/'google drive'/roblo"
-alias roblossh="ssh -p 2222 -v -X roblo@192.168.1.199"
-alias routerssh="ssh -v admin@192.168.1.1"
-alias freenasssh="ssh -p 2222 -v root@192.168.1.167"
-alias plexserver="ssh -p 2222 -v roblo@192.168.1.166"
+alias whereami="pwd"
+
+# Get the Weather
+alias weather="curl wttr.in"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -43,18 +20,14 @@ alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 # Show active network interfaces
-alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
-
-# Show/hide hidden files in Finder
-alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+alias ifactive="ifconfig | pcre2grep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 
 # Hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # URL-encode strings
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+alias urlencode='python3.11 -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
@@ -69,6 +42,9 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
+
+# reset the bluetooth module
+alias killblue="sudo pkill bluetoothd"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
